@@ -6,10 +6,9 @@ namespace GradeBook
     public delegate void GradeAddedDelegate(object sender, EventArgs args); // TODO Move to a separate file.
     public class Book : NamedObject
     {
-        public Book(string name)
+        public Book(string name) : base(name)
         {
             grades = new List<double>();
-            Name = name;
         }
         public void AddGrade(double grade)
         {
