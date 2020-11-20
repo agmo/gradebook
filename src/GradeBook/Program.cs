@@ -6,7 +6,7 @@ namespace GradeBook
     {
         static void Main(string[] args)
         {
-            var book = new Book("Book1");
+            var book = new InMemoryBook("Book1");
             //  Multiple event handlers are here just to demonstrate that you can subscribe multiple times and also unsubscribe from an event.
             book.GradeAdded += OnGradeAdded;
             book.GradeAdded += OnGradeAdded;
