@@ -7,6 +7,11 @@ namespace GradeBook
         static void Main(string[] args)
         {
             var book = new Book("Book1");
+            //  Multiple event handlers are here just to demonstrate that you can subscribe multiple times and also unsubscribe from an event.
+            book.GradeAdded += OnGradeAdded;
+            book.GradeAdded += OnGradeAdded;
+            book.GradeAdded -= OnGradeAdded;
+            book.GradeAdded += OnGradeAdded;
 
             while (true)
             {
@@ -39,6 +44,11 @@ namespace GradeBook
             Console.WriteLine($"The highest grade is {stats.High}");            
             Console.WriteLine($"The average grade is {stats.Average:N1}");
             Console.WriteLine($"The letter grade is {stats.Letter}");
+        }
+
+        static void OnGradeAdded(object sender, EventArgs e)
+        {
+            Console.WriteLine("A grade was added");
         }
     }
 }

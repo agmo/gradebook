@@ -3,8 +3,43 @@ using Xunit;
 
 namespace GradeBook.Tests
 {
+    public delegate string WriteLogDelegate(string logMessage);
     public class TypeTests
     {
+        [Fact]
+        public void WriteLogDelegateCanPointToMethod()
+        {
+            WriteLogDelegate log;
+            log = ReturnMessage;
+
+            var result = log("Hello!");
+            
+            Assert.Equal("Hello!", result);
+        }
+
+        int count = 0;
+        [Fact]
+        public void WriteLogDelegateCanPointToMultipleMethods()
+        {
+            WriteLogDelegate log = ReturnMessage;
+            log += ReturnMessage2;
+
+            log("Hello!");
+
+            Assert.Equal(2, count);
+        }
+
+        string ReturnMessage(string message)
+        {
+            count++;
+            return message;
+        }
+        string ReturnMessage2(string message)
+        {
+            count++;
+            return message;
+        }
+
         [Fact]
         public void CSharpIsPassByValue()
         {
