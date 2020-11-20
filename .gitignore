@@ -642,6 +642,7 @@ fabric.properties
 
 # End of https://www.toptal.com/developers/gitignore/api/dotnetcore,csharp,visualstudio,visualstudiocode,webstorm
 
-# Temp folders
+# Temp folders and files
 bin/
 obj/
+*.txt
