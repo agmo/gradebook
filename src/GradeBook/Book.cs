@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace GradeBook
 {
     public delegate void GradeAddedDelegate(object sender, EventArgs args); // TODO Move to a separate file.
-    public class Book
+    public class Book : NamedObject
     {
         public Book(string name)
         {
@@ -71,7 +71,6 @@ namespace GradeBook
         }
 
         private List<double> grades;
-        public string Name;
     }
 
 }
